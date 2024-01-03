@@ -26,8 +26,8 @@ const App: React.FC = () => {
 		});
 	};
 	return (
-		<section className='flex flex-col justify-center items-center mt-8 text-[#422800] font-[600]'>
-			<div className='bg-[#fbeee0] p-3 rounded-[10px] shadow-[3.5px_3.5px_2px_2px_#2e1c00] w-100 flex flex-col justify-center items-center'>
+		<section className='flex flex-col justify-center items-center mt-32 text-[#422800] font-[600] scale-150'>
+			<div className='bg-[#fbeee0] p-3 rounded-[10px] shadow-[3.5px_3.5px_2px_2px_#2e1c00] w-100 flex flex-col justify-center items-center '>
 				<div className='mb-1 flex flex-row h-[96px] bg-[#fbeee0]  md:w-[97%] min-w-[230px] border-2 border-[#422800] border-solid rounded-[10px] p-3 shadow-[1.5px_1.5px_2px_0px_#422800] '>
 					<div className='flex bg-[#fbeee0]'>
 						<div className='op'>{operation}</div>

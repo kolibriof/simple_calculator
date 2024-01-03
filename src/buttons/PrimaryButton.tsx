@@ -1,10 +1,72 @@
+import { useContext } from "react";
+import { OperationsContext } from "../context/OperationsContext";
+
 interface ButtonProps {
-	value: string | number;
-	func: () => void;
+	value: string | null;
+	func?: () => void;
 	class?: string;
 }
 
 const PrimaryButton: React.FC<ButtonProps> = (props) => {
+	const { setOperation, operation, setSummary } = useContext(OperationsContext);
+	const ButtonTypeCheck = () => {
+		if (props.value === "=") {
+			return (
+				primaryButtonStyle + " text-[black] bg-yellow-500 hover:text-[black]"
+			);
+		}
+		if (props.value === "C") {
+			return (
+				primaryButtonStyle +
+				"text-[black] bg-red-900 hover:bg-red-700 hover:text-[white]"
+			);
+		}
+		return primaryButtonStyle + "bg-yellow-500 hover:text-[black]";
+	};
+	const Calculation = () => {
+		if (props.value === "=") {
+			if (operation && operation?.length >= 3) {
+				let result: number = eval(operation);
+				setSummary(parseFloat(result.toFixed(3)));
+			}
+			setOperation("");
+			return;
+		}
+		if (props.value === "C") {
+			setOperation("");
+			setSummary(0);
+			return;
+		}
+		if (operation) {
+			switch (props.value) {
+				case "x":
+					setOperation(operation + "*");
+					break;
+				case "÷":
+					setOperation(operation + "/");
+					break;
+				default:
+					setOperation(operation + props.value);
+					break;
+			}
+		} else {
+			switch (props.value) {
+				case "x":
+					break;
+				case "÷":
+					break;
+				case "-":
+					break;
+				case "+":
+					break;
+				case ".":
+					break;
+				default:
+					setOperation(props.value);
+					break;
+			}
+		}
+	};
 	const primaryButtonStyle = `
                 m-[5px]
                 bg-[#fbeee0] 
@@ -12,7 +74,7 @@ const PrimaryButton: React.FC<ButtonProps> = (props) => {
                  border-[#422800] 
                  border-solid
                   rounded-[30px]
-                   shadow-[3px_3px_0_0_#422800]
+                   shadow-[2.5px_2.5px_2px_0_#422800]
                     text-[#422800]
                      cursor-pointer 
                      inline-block
@@ -31,16 +93,7 @@ const PrimaryButton: React.FC<ButtonProps> = (props) => {
                           `;
 	return (
 		<div className={props.class ? `flex ${props.class}` : `flex`}>
-			<button
-				className={
-					props.value === "="
-						? `${
-								primaryButtonStyle +
-								" text-[white] bg-yellow-500 hover:text-[black]"
-						  }`
-						: primaryButtonStyle
-				}
-				onClick={props.func}>
+			<button className={ButtonTypeCheck()} onClick={() => Calculation()}>
 				{props.value}
 			</button>
 		</div>

@@ -26,7 +26,7 @@ const App: React.FC = () => {
 		});
 	};
 	return (
-		<section className='flex flex-col justify-center items-center mt-32 text-[#422800] font-[600] scale-150'>
+		<section className='flex flex-col justify-center items-center mt-32 text-[#422800] font-[600] md:scale-150'>
 			<div className='bg-[#fbeee0] p-3 rounded-[10px] shadow-[3.5px_3.5px_2px_2px_#2e1c00] w-100 flex flex-col justify-center items-center '>
 				<div className='mb-1 flex flex-row h-[96px] bg-[#fbeee0]  md:w-[97%] min-w-[230px] border-2 border-[#422800] border-solid rounded-[10px] p-3 shadow-[1.5px_1.5px_2px_0px_#422800] '>
 					<div className='flex bg-[#fbeee0]'>
@@ -61,7 +61,7 @@ const App: React.FC = () => {
 						</div>
 					</div>
 				</div>
-				<div className='flex flex-row md:min-w-[100%]'>
+				<div className='footer flex flex-row md:min-w-[100%] min-w-[100%]'>
 					<div className='font-[600] text-[9px] flex-1 text-center self-center flex flex-col items-start pl-3 gap-1 pt-1'>
 						<div className='flex flex-row gap-[3px]'>
 							<div>

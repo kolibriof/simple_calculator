@@ -18,7 +18,7 @@ export const CharactersCheck = (
 			operation?.length >= 3 &&
 			!forbiddenCharacters.includes(operation.charAt(operation.length - 1))
 		) {
-			const date_time = format(new Date(), "PP p ");
+			const date_time = format(new Date(), "PP pp");
 			let result: number = eval(operation);
 			setSummary(parseFloat(result.toFixed(3)));
 			setOperations({

@@ -10,9 +10,17 @@ interface ButtonProps {
 }
 
 const PrimaryButton: React.FC<ButtonProps> = (props) => {
-	const { setOperation, setSummary, operation } = useContext(OperationsContext);
+	const { setOperation, setSummary, operation, setOperations, operations } =
+		useContext(OperationsContext);
 	const Calculation = () => {
-		CharactersCheck(props.value, operation, setSummary, setOperation);
+		CharactersCheck(
+			props.value,
+			operation,
+			setSummary,
+			setOperation,
+			setOperations,
+			operations,
+		);
 	};
 	return (
 		<div className={`flex ${props.class || ""}`}>

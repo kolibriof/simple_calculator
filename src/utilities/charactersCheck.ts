@@ -1,4 +1,5 @@
 import type { PrevOperationsValues } from "../context/OperationsContext";
+import { format } from "date-fns";
 
 export const CharactersCheck = (
 	value: string | null,
@@ -17,12 +18,7 @@ export const CharactersCheck = (
 			operation?.length >= 3 &&
 			!forbiddenCharacters.includes(operation.charAt(operation.length - 1))
 		) {
-			const date = new Date();
-			const current_date =
-				date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-			const current_time =
-				date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-			const date_time = current_date + " " + current_time;
+			const date_time = format(new Date(), "PP p ");
 			let result: number = eval(operation);
 			setSummary(parseFloat(result.toFixed(3)));
 			setOperations({

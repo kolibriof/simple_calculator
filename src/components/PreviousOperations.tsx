@@ -18,7 +18,7 @@ const PreviousOperations = () => {
 						return (
 							<div
 								key={i[0]}
-								className='flex flex-row gap-2 w-[100%] bg-yellow-500 p-2 rounded-lg shadow-[1.5px_1.5px_1px_1px_#2e1c00] hover:scale-110 transition'
+								className='flex flex-row gap-2 w-[100%] bg-yellow-500 p-2 rounded-lg shadow-[1.5px_1.5px_1px_1px_#2e1c00] hover:scale-110 hover:shadow-[1.5px_1.5px_2.5px_0px_#2e1c00] transition'
 								onClick={() => HandleClick(i[1].operation!, i[1].summary!)}>
 								<div className='flex flex-1'>{i[0]}</div>
 								<div className='flex flex-1 justify-end max-w-16'>

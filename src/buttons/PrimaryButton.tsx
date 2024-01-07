@@ -12,7 +12,7 @@ interface ButtonProps {
 const PrimaryButton: React.FC<ButtonProps> = (props) => {
 	const { setOperation, setSummary, operation, setOperations, operations } =
 		useContext(OperationsContext);
-	const Calculation = () => {
+	const handleCalculation = () => {
 		CharactersCheck(
 			props.value,
 			operation,
@@ -26,7 +26,7 @@ const PrimaryButton: React.FC<ButtonProps> = (props) => {
 		<div className={`flex ${props.class || ""}`}>
 			<button
 				className={ButtonTypeCheck(props.value)}
-				onClick={() => Calculation()}>
+				onClick={() => handleCalculation()}>
 				{props.value}
 			</button>
 		</div>
